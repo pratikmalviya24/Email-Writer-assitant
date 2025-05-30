@@ -1,42 +1,126 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* TextField styling */
+.MuiTextField-root {
+  background-color: #ffffff !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease-in-out !important;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1) !important;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.MuiTextField-root .MuiOutlinedInput-root {
+  color: #1e293b !important;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.MuiTextField-root .MuiInputLabel-root {
+  color: #64748b !important;
+}
+
+.MuiTextField-root .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+.MuiTextField-root:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15) !important;
+}
+
+/* Select styling */
+.MuiFormControl-root {
+  background-color: #ffffff !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease-in-out !important;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1) !important;
+}
+
+.MuiSelect-root {
+  color: #1e293b !important;
+}
+
+.MuiSelect-icon {
+  color: #64748b !important;
+}
+
+/* Button animations */
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-position: 100% 0;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.submit-button, .copy-button {
+  transition: all 0.3s ease-in-out !important;
+  text-transform: none !important;
+  font-size: 1rem !important;
+  padding: 12px 24px !important;
+  border-radius: 12px !important;
+  letter-spacing: 0.5px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.submit-button::before, .copy-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+.submit-button:hover:not(:disabled), 
+.copy-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.25);
+}
+
+/* Error message styling */
+.error-message {
+  background-color: #fef2f2;
+  border-left: 4px solid #f87171;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  color: #991b1b;
+}
+
+/* Loading animation */
+.MuiCircularProgress-root {
+  color: #ffffff !important;
+}
+
+/* Menu items styling */
+.MuiMenuItem-root {
+  color: #1e293b !important;
+}
+
+.MuiMenuItem-root:hover {
+  background-color: #f8fafc !important;
+}
+
+.MuiPopover-paper {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .MuiTextField-root,
+  .MuiFormControl-root {
+    font-size: 14px !important;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  .submit-button, .copy-button {
+    font-size: 0.9rem !important;
+    padding: 10px 20px !important;
+  }
 }

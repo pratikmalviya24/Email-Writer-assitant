@@ -1,68 +1,91 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(-45deg, #f0f9ff, #e0f2fe, #dbeafe, #e0e7ff);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  font-family: 'Roboto', sans-serif;
+  color: #1e293b;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.app-container {
+  background-color: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.title {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+  font-size: 2.5rem !important;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.response-card {
+  background-color: #f8fafc;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.copy-button {
+  margin-top: 1rem !important;
+  background: linear-gradient(45deg, #6366f1, #8b5cf6) !important;
+  color: white !important;
+  font-weight: 500 !important;
+  &:hover {
+    background: linear-gradient(45deg, #4f46e5, #7c3aed) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
   }
-  a:hover {
-    color: #747bff;
+}
+
+.submit-button {
+  background: var(--primary-gradient) !important;
+  color: white !important;
+  font-weight: 500 !important;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem !important;
   }
 }
