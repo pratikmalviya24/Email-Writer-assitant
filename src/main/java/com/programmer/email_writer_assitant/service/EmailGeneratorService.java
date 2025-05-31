@@ -1,24 +1,25 @@
 package com.programmer.email_writer_assitant.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.programmer.email_writer_assitant.dto.EmailRequest;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.util.Map;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.programmer.email_writer_assitant.dto.EmailRequest;
 
 @Service
 public class EmailGeneratorService {
 
     private final WebClient webClient;
 
-    @Value("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=")
+    @Value("{Write your Gemini API URL here}")
     private  String GEMINI_API_URL;
 
-    @Value("AIzaSyCmcl65er6ROrht2QGfKhh0yd6Geb7BAIY")
+    @Value("{Write your Gemini API Key here}")
     private  String GEMINI_API_KEY;
 
     @Autowired
